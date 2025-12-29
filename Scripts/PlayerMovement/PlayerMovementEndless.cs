@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControllerEndless : MonoBehaviour
 {
@@ -42,6 +43,12 @@ public class PlayerControllerEndless : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+
+        }
+        if (collision.gameObject.CompareTag("Destroyer"))
+        {
+            SceneManager.LoadScene(4);
         }
     }
+
 }
