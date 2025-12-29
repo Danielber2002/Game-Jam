@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    // Método para iniciar el juego
+
     public void Play()
     {
         SceneManager.LoadScene(1);
@@ -21,11 +21,25 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void OpenFirstGift()
+    {
+        SceneManager.LoadScene(2);
+    }
 
-    // Método para salir del juego
+    public void OpenSecondGift()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void OpenThirdGift()
+    {
+        SceneManager.LoadScene(4);
+    }
+
+
+
     public void Exit()
     {
-        Debug.Log("Se pulsó en el botón Salir.");
         Application.Quit();
     }
 }
