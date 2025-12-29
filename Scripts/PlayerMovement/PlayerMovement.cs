@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,4 +41,34 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(newPos);
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+
+        if (collider.CompareTag("Enemy"))
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Static;
+
+            GetComponent<Collider2D>().enabled = false;
+
+            this.enabled = false;
+
+            Animator anim = GetComponent<Animator>();
+            if (anim != null)
+            {
+                anim.enabled = false; 
+            }
+
+            Invoke("GameOver", 2f);
+
+        }
+
+    }
+
+    private void GameOver()
+    {
+        SceneManager.LoadScene(1);
+    }
+
 }
